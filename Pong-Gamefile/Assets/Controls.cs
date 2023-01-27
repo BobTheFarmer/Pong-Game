@@ -18,25 +18,24 @@ public class Controls : MonoBehaviour
         //Move player paddle based on input
         //Also use playerPositon to prevent the paddle from breifly exiting the scene
         Vector3 playerPosition = transform.position;
-        if(Input.GetKey("s") || Input.GetKey("down"))
+        if (Input.GetKey("s") || Input.GetKey("down"))
         {
-            playerPosition.y -= playerSpeed;
+            playerPosition.y -= playerSpeed * Time.deltaTime;
         }
         if (Input.GetKey("w") || Input.GetKey("up"))
         {
-            playerPosition.y += playerSpeed;
+            playerPosition.y += playerSpeed * Time.deltaTime;
         }
 
         //Limit to stay in screen
-        if (playerPosition.y > 5f - 3.5f/2f)
+        if (playerPosition.y > 5f - 3.5f / 2f)
         {
-            playerPosition.y = 5f - 3.5f/2f;
+            playerPosition.y = (5f - 3.5f / 2f);
         }
-        if (playerPosition.y < -5f + 3.5f/2f) 
+        if (playerPosition.y < -5f + 3.5f / 2f)
         {
-            playerPosition.y = -5f + 3.5f/2f;
+            playerPosition.y = -5f + 3.5f / 2f;
         }
-
         transform.position = playerPosition;
     }
 }
