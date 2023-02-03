@@ -6,12 +6,14 @@ public class LineController : MonoBehaviour
 {
     private LineRenderer lineRenderer;
     private GameObject playerArrow;
+    private GameObject lineBase;
     private const float maxLineLength = 4;
     // Start is called before the first frame update
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
         playerArrow = GameObject.Find("Player Arrow");
+        lineBase = GameObject.Find("Player Arrow Base");
     }
 
     // Update is called once per frame
@@ -24,7 +26,10 @@ public class LineController : MonoBehaviour
         if (mousePos.x < playerArrowPos.x) //Don't make line if it goes left
         {
             lineRenderer.enabled = false;
+            playerArrow.SetActive(false);
+
         } else {
+            playerArrow.SetActive(true);
             lineRenderer.enabled = true;
 
             float distance = Vector3.Distance(playerArrowPos, mousePos); //To make the line have a max distance, check the distance between both points
@@ -39,7 +44,7 @@ public class LineController : MonoBehaviour
         }
 
         //Display base and arrow sprites 
-
+        
     }
 
         
