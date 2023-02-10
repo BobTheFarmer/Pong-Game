@@ -1,4 +1,4 @@
-using System.Collections;, 
+using System.Collections; 
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -61,9 +61,10 @@ public class LineController : MonoBehaviour
             //Set the line's pos to both the playerArrow and the lineEnd
             lineRenderer.SetPosition(0, playerArrowPos); //Use Arrow to make line start to the right
             lineRenderer.SetPosition(1, lineEnd);
-            
+
             //Display arrow sprite
             lineEndSprite.transform.position = lineEnd;
+            lineEndSprite.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(mousePos.y - transform.position.y, mousePos.x - transform.position.x) * Mathf.Rad2Deg - 90);
             //lineEndSprite.transform.rotation = Quaternion.Rotaye
             //Quaternion tempAngle = Quaternion.LookRotation(directionToMouse, Vector3.up);
             //wtempAngle.x = 0;
